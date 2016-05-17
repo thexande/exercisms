@@ -7,13 +7,21 @@ var Bob = function() {};
 
 Bob.prototype.hey = function(input) {
 // YOUR CODE GOES HERE
-  switch (input) {
-    case 'Tom-ay-to, tom-aaaah-to.': return 'Whatever.'; break;
-    case 'WATCH OUT!': return "Whoa, chill out!"; break;
-
-      break;
-    // default:
-
+  if(input.substr(input.length - 1) === "?" && input != input.toUpperCase()){
+    return "Sure."
+  }
+  if(input.substr(input.length - 1) === "?" && !isNaN(parseInt(input.substr(0)))){
+    return "Sure."
+  }
+  else if(input === input.toUpperCase() && input.trim() != ""
+  && isNaN(parseInt(input.substr(input.length - 1)))){
+    return "Whoa, chill out!"
+  }
+  else if(input.trim() === ''){
+    return "Fine. Be that way!";
+  }
+  else{
+    return "Whatever."
   }
 
 };
